@@ -1,8 +1,2 @@
 Cargo.lock
 target/
-.vscode/
-.envrc
-.github
-default.nix
-flake.nix
-shell.nix
