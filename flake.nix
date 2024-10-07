@@ -23,7 +23,7 @@
 
       shellHook = ''
         cargo install rustlings
-        alias rustlings=' ~/.cargo/bin/rustlings'
+        alias rustlings='~/.cargo/bin/rustlings'
       '';
 
     };

@@ -50,7 +50,15 @@ impl PositiveNonzeroInteger {
 // use to describe both errors? Is there a trait which both errors implement?
 fn main() {
     let pretend_user_input = "42";
-    let x: i64 = pretend_user_input.parse()?;
-    println!("output={:?}", PositiveNonzeroInteger::new(x)?);
-    Ok(())
+    let x: i64 = match pretend_user_input.parse() {
+        Ok(x) => x,
+        Err(e) => panic!("{e}"),
+    };
+    println!(
+        "output={:?}",
+        match PositiveNonzeroInteger::new(x) {
+            Ok(x) => format!("{:?}", x),
+            Err(e) => format!("{}", e),
+        }
+    );
 }
