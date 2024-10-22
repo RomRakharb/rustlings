@@ -18,19 +18,11 @@
         cargo
         clippy
         rustfmt
-
-        helix
         rust-analyzer
 
+        helix
         rustlings
       ];
-
-      # shellHook = ''
-      #   cargo install rustlings
-      #   alias rustlings='~/.cargo/bin/rustlings'
-      # '';
-
     };
-
   };
 }
