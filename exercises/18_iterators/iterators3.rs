@@ -11,14 +11,27 @@ enum DivisionError {
 // TODO: Calculate `a` divided by `b` if `a` is evenly divisible by `b`.
 // Otherwise, return a suitable error.
 fn divide(a: i64, b: i64) -> Result<i64, DivisionError> {
-    todo!();
+    match (a, b) {
+        (_, 0) => Err(DivisionError::DivideByZero),
+        (a, b)
+            if a.checked_add(1) == None
+                || a.checked_sub(1) == None
+                || b.checked_add(1) == None
+                || b.checked_sub(1) == None =>
+        {
+            Err(DivisionError::IntegerOverflow)
+        }
+        (a, b) if a % b == 0 => Err(DivisionError::NotDivisible),
+        (_, _) => Ok(a / b),
+    }
 }
 
 // TODO: Add the correct return type and complete the function body.
 // Desired output: `Ok([1, 11, 1426, 3])`
-fn result_with_list() {
+fn result_with_list() -> Result<[i64; 4], DivisionError> {
     let numbers = [27, 297, 38502, 81];
     let division_results = numbers.into_iter().map(|n| divide(n, 27));
+    Ok(division_results)
 }
 
 // TODO: Add the correct return type and complete the function body.
