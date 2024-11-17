@@ -10,6 +10,9 @@ fn factorial(num: u64) -> u64 {
     // - additional variables
     // For an extra challenge, don't use:
     // - recursion
+
+    // (1..=num).collect::<Vec<u64>>().iter().fold(1, |x, y| x * y)
+    (1..=num).collect::<Vec<u64>>().iter().product()
 }
 
 fn main() {
